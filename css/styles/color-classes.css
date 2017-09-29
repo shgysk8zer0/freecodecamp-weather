@@ -1,0 +1,15 @@
+.color-white {
+	color: white;
+}
+
+.color-gray, .color-grey {
+	color: gray;
+}
+
+.color-light-gray, .color-light-grey {
+	color: lightgray;
+}
+
+.color-yellow {
+	color: yellow;
+}
