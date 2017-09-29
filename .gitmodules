@@ -13,3 +13,6 @@
 [submodule "img/logos"]
 	path = img/logos
 	url = git://github.com/shgysk8zer0/logos.git
+[submodule "fonts"]
+	path = fonts
+	url = git://github.com/shgysk8zer0/fonts.git
