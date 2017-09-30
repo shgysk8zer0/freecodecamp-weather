@@ -1,5 +1,5 @@
 # freecodecamp-weather
-FreeCodeCamp: Show the Local Weather
+FreeCodeCamp: Show the Local Weather [![Build Status](https://travis-ci.org/shgysk8zer0/freecodecamp-weather.svg?branch=master)](https://travis-ci.org/shgysk8zer0/freecodecamp-weather)
 
 [![screenshot](https://i.imgur.com/Rzn2ch5.png)](https://codepen.io/freeCodeCamp/full/bELRjV)
 
