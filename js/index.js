@@ -26,10 +26,10 @@ $(window).ready(async () => {
 	const isNight = isNightTime(weather);
 	const cond = weather.weather[0].main;
 
-	$('[data-prop="city"]', template).text = weather.name;
-	$('[data-prop="country"]', template).text = weather.sys.country;
-	$('[data-prop="temp"]', template).text = (9 / 5 * weather.main.temp + 32).toFixed(2);
-	$('[data-prop="condition"]', template).text = cond;
+	$('[data-prop="city"]', template).text(weather.name);
+	$('[data-prop="country"]', template).text(weather.sys.country);
+	$('[data-prop="temp"]', template).text((9 / 5 * weather.main.temp + 32).toFixed(2));
+	$('[data-prop="condition"]', template).text(cond);
 	$('.weather-icon', template).each(icon => {
 		icon.dataset.weatherCondition = cond;
 		const use = icon.querySelector('use');
