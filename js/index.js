@@ -2,9 +2,13 @@ import {$} from './std-js/functions.js';
 import Weather from './weather.js';
 import {icons} from './consts.js';
 
-
 function isNightTime(weather) {
-	const unixTime = (new Date()).getTime() / 100;
+	return ! isDayTime(weather);
+}
+
+function isDayTime(weather) {
+	const date = new Date();
+	const unixTime = (date.getTime() + date.getTimezoneOffset() * 60) / 1000;
 	return unixTime > weather.sys.sunrise && unixTime < weather.sys.sunset;
 }
 
