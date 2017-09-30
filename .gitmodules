@@ -1,18 +1,18 @@
 [submodule "js/std-js"]
 	path = js/std-js
-	url = git://github.com/shgysk8zer0/std-js.git
+	url = https://github.com/shgysk8zer0/std-js.git
 [submodule "css/core-css"]
 	path = css/core-css
-	url = git://github.com/shgysk8zer0/core-css.git
+	url = https://github.com/shgysk8zer0/core-css.git
 [submodule "img/adwaita-icons"]
 	path = img/adwaita-icons
-	url = git://github.com/shgysk8zer0/adwaita-icons.git
+	url = https://github.com/shgysk8zer0/adwaita-icons.git
 [submodule "img/octicons"]
 	path = img/octicons
-	url = git://github.com/primer/octicons.git
+	url = https://github.com/primer/octicons.git
 [submodule "img/logos"]
 	path = img/logos
-	url = git://github.com/shgysk8zer0/logos.git
+	url = https://github.com/shgysk8zer0/logos.git
 [submodule "fonts"]
 	path = fonts
-	url = git://github.com/shgysk8zer0/fonts.git
+	url = https://github.com/shgysk8zer0/fonts.git
