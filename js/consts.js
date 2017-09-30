@@ -27,7 +27,7 @@ export const icons = {
 	snow: {
 		day: 'weather-snow',
 	},
-	storm: {
+	thunderstorm: {
 		day: 'weather-storm',
 	},
 	windy: {
