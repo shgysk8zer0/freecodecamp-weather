@@ -1,0 +1,15 @@
+<head>
+	<title>{{ site.title }}</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	{% if jekyll.environment == "development" %}
+		<script type="module" src="js/index.js" async=""></script>
+		<script type="application/javascript" src="js/index.min.js" async="" nomodule=""></script>
+		<link rel="stylesheet" href="css/styles/index.css" media="screen" />
+	{% else %}
+		<!-- {{ jekyll.environment }} -->
+		<script type="application/javascript" src="js/index.min.js" async=""></script>
+		<link rel="stylesheet" href="css/styles/index.min.css" media="screen" />
+	{% endif %}
+	<link rel="icon" href="img/adwaita-icons/status/weather-few-clouds.svg" type="image/svg+xml" sizes="any" />
+</head>

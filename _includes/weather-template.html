@@ -1,0 +1,15 @@
+<template id="weather-template">
+	<div class="results">
+		<h2>
+			<span data-prop="city"></span>,
+			<span data-prop="country"></span>
+		</h2>
+		<b data-prop="temp" data-sys="F" class="cursor-pointer color-alt"></b>
+		<hr />
+		<span data-prop="condition"></span>
+		<br />
+		<svg width="128" height="128" class="weather-icon current-color">
+			<use xlink:href="img/icons.svg#" />
+		</svg>
+	</div>
+</template>

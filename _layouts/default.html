@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html dir="{{ site.dir | default: 'ltr' }}" lang="{{ site.lang | default: 'en' }}">
+	{% include head.html %}
+	<body class="container font-main background-primary color-default border-box center cursor-wait">
+		{% include header.html %}
+		{% include main.html %}
+		{% include footer.html %}
+		{% include weather-template.html %}
+	</body>
+</html>
