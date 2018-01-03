@@ -26,12 +26,10 @@
     "npm": ">=3.5"
   },
   "scripts": {
-    "build:all": "npm run build:icons && npm run build:css && npm run build:js",
+    "build": "npm run build:icons && npm run build:css && npm run build:js",
     "build:css": "postcss css/styles/index.css -o css/styles/index.min.css",
     "build:js": "rollup -c",
     "build:icons": "svg-sprite-generate -c img/icons.csv -o img/icons.svg",
-    "lint": "npm run lint:all",
-    "lint:all": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint .",
     "lint:css": "stylelint 'css/**/*.css'",
     "watch:css": "postcss css/styles/index.css -o css/styles/index.min.css -w",
@@ -39,9 +37,10 @@
     "git:fetch": "git fetch --all --prune --tags",
     "git:submodules": "git submodule update --init --recursive",
     "update-remote": "git submodule update --remote --init --recursive && npm update --save",
-    "update-packages": "npm run git:submodules && npm run git:fetch && npm run build:all",
-    "test": "npm run lint",
-    "postinstall": "npm run git:fetch && npm run git:submodules && npm run build:all"
+    "update-packages": "npm run git:submodules && npm run git:fetch && npm run build",
+    "test": "npm run lint:js && npm run lint:css",
+    "start": "python -m SimpleHTTPServer 8000",
+    "postinstall": "npm run git:fetch && npm run git:submodules && npm run build"
   },
   "devDependencies": {
     "eslint": "^3.10.0",

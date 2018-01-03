@@ -1,3 +1,5 @@
+import './std-js/shims.js';
+import './std-js/deprefixer.js';
 import {$} from './std-js/functions.js';
 import Weather from './weather.js';
 import {icons} from './consts.js';
@@ -23,12 +25,13 @@ function convertTemp() {
 	}
 }
 
-$(window).ready(async () => {
-	$('.cursor-wait').removeClass('cursor-wait');
+async function updateWeather() {
 	const weather = await Weather.getFromLocation();
 	const template = document.getElementById('weather-template').content.cloneNode(true);
 	const isNight = isNightTime(weather);
 	const cond = weather.weather[0].main;
+	const main = document.querySelector('main');
+	$(main.children).remove();
 
 	$('[data-prop="city"]', template).text(weather.name);
 	$('[data-prop="country"]', template).text(weather.sys.country);
@@ -40,10 +43,19 @@ $(window).ready(async () => {
 		const href = new URL(use.getAttribute('xlink:href'), location.href);
 		let symbol = icons[cond.replace(' ', '-').toLowerCase()] || 'severe-alert';
 
-		href.hash = isNight && symbol.hasOwnProperty('night')  ? symbol.night : symbol.day;
+		href.hash = isNight && symbol.hasOwnProperty('night') ? symbol.night : symbol.day;
 		use.setAttribute('xlink:href', href);
 	});
 
-	document.querySelector('main').append(template);
+	main.append(template);
 	$('[data-prop="temp"]').click(convertTemp);
-}, {once: true});
+}
+
+async function readyHandler() {
+	await updateWeather();
+	$('.cursor-wait').removeClass('cursor-wait');
+	$('.js-update').click(updateWeather);
+	setInterval(updateWeather, 60 * 30 * 1000);
+}
+
+$(self).ready(readyHandler, {once: true});
