@@ -3,13 +3,12 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
 	{% if jekyll.environment == "development" %}
-		<script type="module" src="js/index.js" async=""></script>
-		<script type="application/javascript" src="js/index.min.js" async="" nomodule=""></script>
-		<link rel="stylesheet" href="css/styles/index.css" media="screen" />
+		<script type="module" src="{{ 'js/index.js' | absolute_url }}" async=""></script>
+		<script type="application/javascript" src="{{ 'js/index.min.js' | absolute_url }}" async="" nomodule=""></script>
+		<link rel="stylesheet" href="{{ 'css/index.css' | absolute_url }}" media="screen" />
 	{% else %}
-		<!-- {{ jekyll.environment }} -->
-		<script type="application/javascript" src="js/index.min.js" async=""></script>
-		<link rel="stylesheet" href="css/styles/index.min.css" media="screen" />
+		<script type="application/javascript" src="{{ 'js/index.min.js' | absolute_url }}" async=""></script>
+		<link rel="stylesheet" href="{{ 'css/index.min.css' | absolute_url }}" media="screen" />
 	{% endif %}
-	<link rel="icon" href="img/adwaita-icons/status/weather-few-clouds.svg" type="image/svg+xml" sizes="any" />
+	<link rel="icon" href="{{ 'img/adwaita-icons/weather-few-clouds.svg' | absolute_url }}" type="image/svg+xml" sizes="any" />
 </head>

@@ -1,6 +1,6 @@
 import './std-js/shims.js';
 import './std-js/deprefixer.js';
-import {$} from './std-js/functions.js';
+import {$, ready} from './std-js/functions.js';
 import Weather from './weather.js';
 import {icons} from './consts.js';
 
@@ -51,11 +51,13 @@ async function updateWeather() {
 	$('[data-prop="temp"]').click(convertTemp);
 }
 
-async function readyHandler() {
-	await updateWeather();
-	$('.cursor-wait').removeClass('cursor-wait');
-	$('.js-update').click(updateWeather);
-	setInterval(updateWeather, 60 * 30 * 1000);
-}
-
-$(self).ready(readyHandler, {once: true});
+ready().then(() => {
+	updateWeather().then(() => {
+		$('.cursor-wait').removeClass('cursor-wait');
+		$('.js-update').click(updateWeather).then($btn => $btn.attr({disabled: false}));
+		setInterval(updateWeather, 60 * 30 * 1000);
+	}).catch(() => {
+		$('.error-message').removeClass('hidden');
+		$('.cursor-wait').removeClass('cursor-wait');
+	});
+});

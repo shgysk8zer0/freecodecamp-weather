@@ -1,12 +1,10 @@
 <header>
 	<h1>
-		<span>Free C</span><svg class="icon color-yellow current-color spin">
-			<use xlink:href="img/icons.svg#weather-clear" />
-		</svg><span>de Camp</span>
+		<span>Free C</span>{% include icon.html icon='#weather-clear' class='icon color-yellow current-color spin' %}<span>de Camp</span>
 		<br />
 		<span>Weather App</span>
-		<svg class="icon current-color cursor-pointer js-update">
-			<use xlink:href="img/icons.svg#refresh" />
-		</svg>
+		<button class="js-update round" disabled="">
+			{% include icon.html icon='#refresh' %}
+		</button>
 	</h1>
 </header>

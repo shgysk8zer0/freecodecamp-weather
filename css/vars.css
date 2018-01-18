@@ -1,0 +1,12 @@
+:root {
+	--primary-color: #161616;
+	--default-color: #FFFFFF;
+	--alt-color: #006DCC;
+	--main-font: Roboto;
+	--button-border: none;
+	--button-background: #0EB80E;
+	--button-disabled-background: #023E02;
+	--button-disabled-border: var(--button-border);
+	--button-active-background: #057C05;
+	--button-active-border: var(--button-border);
+}

@@ -1,8 +1,11 @@
 @charset "UTF-8";
 @import url("./vars.css");
-@import url("../core-css/class-rules.css");
+@import url("./core-css/viewport.css");
+@import url("./core-css/element.css");
+@import url("./core-css/class-rules.css");
+@import url("./core-css/animations.css");
 @import url("./color-classes.css");
-@import url("./rem.css");
+@import url("./core-css/rem.css");
 
 *, *::after, *::before {
 	box-sizing: inherit;
@@ -22,6 +25,25 @@ body, .container {
 
 h1 {
 	font-size: 4rem;
+}
+
+button {
+	height: 2rem;
+	width: 2rem;
+	vertical-align: middle;
+}
+
+.error-message {
+	color: red;
+	transition: opacity 400ms ease-in;
+}
+
+.warn {
+	color: yellow;
+}
+
+.error-message.hidden {
+	opacity: 0;
 }
 
 .spin {
