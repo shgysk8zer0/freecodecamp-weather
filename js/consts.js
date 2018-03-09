@@ -1,4 +1,5 @@
-export const ENDPOINT = 'https://fcc-weather-api.glitch.me/api/current';
+export const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather/';
+export const key = '6be145cbc5791c9f80471ff39d8523ed';
 
 export const icons = {
 	clear: {

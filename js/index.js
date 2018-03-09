@@ -1,8 +1,9 @@
 import './std-js/shims.js';
 import './std-js/deprefixer.js';
 import {$, ready} from './std-js/functions.js';
+import {alert} from './std-js/asyncDialog.js';
 import Weather from './weather.js';
-import {icons} from './consts.js';
+import {icons, key} from './consts.js';
 
 function isNightTime(weather) {
 	return ! isDayTime(weather);
@@ -26,18 +27,18 @@ function convertTemp() {
 }
 
 async function updateWeather() {
-	const weather = await Weather.getFromLocation();
+	const weather = await Weather.getFromLocation(key);
 	const template = document.getElementById('weather-template').content.cloneNode(true);
 	const isNight = isNightTime(weather);
 	const cond = weather.weather[0].main;
 	const main = document.querySelector('main');
-	$(main.children).remove();
+	await $(main.children).remove();
 
-	$('[data-prop="city"]', template).text(weather.name);
-	$('[data-prop="country"]', template).text(weather.sys.country);
-	$('[data-prop="temp"]', template).text((9 / 5 * weather.main.temp + 32).toFixed(2));
-	$('[data-prop="condition"]', template).text(cond);
-	$('.weather-icon', template).each(icon => {
+	await $('[data-prop="city"]', template).text(weather.name);
+	await $('[data-prop="country"]', template).text(weather.sys.country);
+	await $('[data-prop="temp"]', template).text(weather.main.temp.toFixed(2));
+	await $('[data-prop="condition"]', template).text(cond);
+	await $('.weather-icon', template).each(icon => {
 		icon.dataset.weatherCondition = cond;
 		const use = icon.querySelector('use');
 		const href = new URL(use.getAttribute('xlink:href'), location.href);
@@ -56,8 +57,9 @@ ready().then(() => {
 		$('.cursor-wait').removeClass('cursor-wait');
 		$('.js-update').click(updateWeather).then($btn => $btn.attr({disabled: false}));
 		setInterval(updateWeather, 60 * 30 * 1000);
-	}).catch(() => {
+	}).catch(err => {
 		$('.error-message').removeClass('hidden');
 		$('.cursor-wait').removeClass('cursor-wait');
+		alert(err.message);
 	});
 });
