@@ -7,5 +7,10 @@
 		{% include error-message.html %}
 		{% include footer.html %}
 		{% include weather-template.html %}
+		<button type="button" class="round shadow fixed bottom right js-share">
+			<svg class="icon current-color">
+				<use xlink:href="{{ 'img/icons.svg#share' | absolute_url }}" />
+			</svg>
+		</button>
 	</body>
 </html>

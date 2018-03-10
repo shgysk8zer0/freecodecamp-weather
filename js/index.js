@@ -4,6 +4,17 @@ import {$, ready} from './std-js/functions.js';
 import {alert} from './std-js/asyncDialog.js';
 import Weather from './weather.js';
 import {icons, key} from './consts.js';
+import webShareApi from './std-js/webShareApi.js';
+import {
+	facebook,
+	twitter,
+	googlePlus,
+	linkedIn,
+	reddit,
+	gmail,
+} from './std-js/share-config.js';
+
+webShareApi(facebook, twitter, googlePlus, linkedIn, reddit, gmail);
 
 function isNightTime(weather) {
 	return ! isDayTime(weather);
@@ -61,5 +72,15 @@ ready().then(() => {
 		$('.error-message').removeClass('hidden');
 		$('.cursor-wait').removeClass('cursor-wait');
 		alert(err.message);
+	});
+
+	$('.js-share').click(event => {
+		event.preventDefault();
+		event.stopPropagation();
+		navigator.share({
+			title: document.title,
+			url: location.href,
+			text: document.querySelector('meta[name="description"]').content,
+		}).catch(console.error);
 	});
 });
