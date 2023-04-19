@@ -47,14 +47,14 @@
     "eslint": "^3.10.0",
     "eslint-plugin-async-await": "0.0.0",
     "eslint-plugin-babel": "^4.1.2",
-    "stylelint": "^8.1.1",
+    "stylelint": "^15.5.0",
     "stylelint-config-recommended": "^1.0.0",
     "stylelint-config-standard": "^17.0.0"
   },
   "dependencies": {
     "cssnano": "^3.10.0",
     "postcss": "^5.2.14",
-    "postcss-cli": "^3.0.0-beta",
+    "postcss-cli": "^10.1.0",
     "postcss-load-config": "^1.2.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
